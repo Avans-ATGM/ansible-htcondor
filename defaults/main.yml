@@ -1,9 +1,7 @@
-condor_daemons:
-    - COLLECTOR
-    - MASTER
-    - NEGOTIATOR
-    - SCHEDD
-
+condor_roles_config:
+    execute: [STARTD]
+    cm: [COLLECTOR, NEGOTIATOR]
+    submit: [SCHEDD]
 condor_extra:
 
 condor_stable_repo:

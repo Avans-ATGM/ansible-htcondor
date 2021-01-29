@@ -10,7 +10,9 @@ ALLOW_ADMINISTRATOR = {{ condor_allow_administrator }}
 
 ALLOW_OWNER = $(ALLOW_ADMINISTRATOR)
 ALLOW_CLIENT = *
-DAEMON_LIST = {{ ", ".join(condor_daemons) }}
+
+DAEMON_LIST = MASTER{% if 'execute' in condor_roles %}, {{ ", ".join(condor_roles_config.execute) }}{% endif %}{% if 'central-manager' in condor_roles %}, {{ ", ".join(condor_roles_config.cm) }}{% endif %}{% if 'submit' in condor_roles %}, {{ ", ".join(condor_roles_config.submit) }}{% endif %}
+
 # Define FS and UID domain
 FILESYSTEM_DOMAIN = {{ condor_fs_domain }}
 UID_DOMAIN = {{ condor_uid_domain }}

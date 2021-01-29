@@ -13,6 +13,6 @@
     state: present
     filename: 'htcondor'
 
-- name: condor install
+- name: HTCondor install
   package:
-    name: condor
+    name: htcondor

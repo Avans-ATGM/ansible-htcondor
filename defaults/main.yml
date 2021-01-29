@@ -14,3 +14,6 @@ condor_package_label: condor-all-8.8.12
 condor_copy_template: true
 
 epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+
+condor_uid_domain: "{{ condor_fs_domain }}"
+condor_trust_uid_domain: 'True'

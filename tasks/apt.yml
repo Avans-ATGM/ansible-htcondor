@@ -1,0 +1,18 @@
+---
+- apt_key:
+    url: "https://research.cs.wisc.edu/htcondor/ubuntu/HTCondor-Release.gpg.key"
+    state: present
+
+- apt_repository:
+    repo: "deb http://research.cs.wisc.edu/htcondor/ubuntu/8.8/{{ ansible_distribution_release }} {{ ansible_distribution_release }} contrib"
+    state: present
+    filename: 'htcondor'
+
+- apt_repository:
+    repo: "deb-src http://research.cs.wisc.edu/htcondor/ubuntu/8.8/{{ ansible_distribution_release }} {{ ansible_distribution_release }} contrib"
+    state: present
+    filename: 'htcondor'
+
+- name: condor install
+  package:
+    name: condor
